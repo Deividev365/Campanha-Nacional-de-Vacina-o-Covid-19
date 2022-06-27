@@ -109,14 +109,68 @@ if(fundamental == TRUE) {
 view(fundamental)
 
 
-## tomou vacina
+## Soma total pessoas com Vacina
+tomouVacina <- sum(INFLUD17$VACINA)
 
-zonaResid <- (INFLUD17$VACINA == 1)
+## dataframe em um ggplot com as pessoas que tomaram vacina
+tomouVacina <-  data.frame(INFLUD17$VACINA)
+
+ggplot(tomouVacina)
+
+## Total de Pessoas com Influenza
+
+casosInfluenza <- sum(INFLUD17$HOSPITAL)
 
 
-view(converNumbers)
+view(INFLUD17)
+
+# Filtra idade dos pacientes e Sexo das pessoas
 
 
+
+##tbDataNasc <- as.data.frame(table(INFLUD17$NU_IDADE_N))
+
+install.packages("stringr")
+library(stringr)
+
+
+
+rw <- (row.names(dataNascimento))
+
+
+  dataNascimento <- (INFLUD17$NU_IDADE_N)
+  
+  dataNascimentoConver <- str_sub(dataNascimento, start = 3)
+  
+  
+  dataNascimentoInteger <- as.numeric(dataNascimentoConver)
+  
+  
+  hist(dataNascimentoInteger, main = "Sintomas de Sindrome Respiratória por idade", xlab = "Idades", ylab = "Quantidade de Pessoas")
+  
+  
+  
+  idadeTotal <- (dataNascimentoInteger == 25)
+  
+  view(idadeTotal)
+
+  
+  
+  summary(dataNascimentoInteger)
+  
+
+  view(dataNascimentoConver)
+
+  print(dataNascimento[1])
+
+for (item in dataNascimento) {
+  
+  View(str_sub(item, start = 3))
+  
+
+}
+  
+view(dataNascimento)
 
 
 
