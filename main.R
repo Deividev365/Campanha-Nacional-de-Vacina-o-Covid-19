@@ -8,6 +8,9 @@ INFLUD17 <- read_excel("INFLUD17.xlsx")
 #soma de pessoas do sexo masculino: 15061
 qnt_Sexo_M <- sum(INFLUD17$CS_SEXO == "M" )
 
+## Tabela de Frequência sexo masculino e feminino
+tbDeFrequencia <- as.data.frame(table(INFLUD17$CS_SEXO))
+
 qnt <- INFLUD17$CS_SEXO
 
 View((qnt))
@@ -55,8 +58,20 @@ INFLUD17 %>% group_by(SG_UF_NOT_NEW) %>% summarise(Contagem = n()) %>%
   #exibe histograma baseado na tabela da distribuição de casos por estado
   ggplot(aes(x = SG_UF_NOT_NEW, y = Contagem), xlab("Estados")) + geom_bar(stat = "identity")
 
+## Visualização distribuição usando a função do ggplot dos estados obtidos na amostra
+ggplot(INFLUD17, aes(SG_UF_NOT_NEW)) +
+  geom_bar()
+
+
+## Frequência Obtida na coluna de gestação
+tbDeFrequenciaGestante <- as.data.frame(table(INFLUD17$CS_GESTANT))
+
+proportions(table(INFLUD17$SEM_NOT))
 
 
 
+## Teste de Hipótese
+## Testar Hipótese de pessoas com idade entre 0 e 25 e 26 e 50 anos
+sindromeDown <- sum(INFLUD17$NU_IDADE_N)
 
 
