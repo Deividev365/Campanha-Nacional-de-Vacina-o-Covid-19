@@ -71,7 +71,60 @@ proportions(table(INFLUD17$SEM_NOT))
 
 
 ## Teste de Hipótese
-## Testar Hipótese de pessoas com idade entre 0 e 25 e 26 e 50 anos
+## Testar Hipótese de pessoas com idade entre 0 e 25 e 26 e 50 anos??
 sindromeDown <- sum(INFLUD17$NU_IDADE_N)
+
+## 0 a 25
+## Pacote para Realizar a Filtragem de atributos da TabelaconverNumbersconverNumbers
+require(tidyverse)
+install.packages("tidyverse")
+
+view(INFLUD17)
+
+# Filtra idade dos pacientes, se o paciente tomou a vacina e tendência de sintomas Desconforto
+# Respiratório
+INFLUD17 %>%
+    select(NU_IDADE_N, VACINA, DESC_RESP)
+
+idadesPacientes <- INFLUD17$NU_IDADE_N
+
+convertIdadePacientes <- round(idadesPacientes, -2)
+
+view(idadesPacientes)
+
+view(convertIdadePacientes)
+
+## Media de Idade dos Pacientes com Casos ##
+mediaIdadesPacientes <- mean(convertIdadePacientes)
+
+
+## Escolaridade dos Pacientes ##
+
+fundamental <- (INFLUD17$CS_ESCOL_N == 1)
+
+if(fundamental == TRUE) {
+  sum(fundamental)
+}
+
+view(fundamental)
+
+
+## tomou vacina
+
+zonaResid <- (INFLUD17$VACINA == 1)
+
+
+view(converNumbers)
+
+
+
+
+
+
+
+
+
+
+
 
 
